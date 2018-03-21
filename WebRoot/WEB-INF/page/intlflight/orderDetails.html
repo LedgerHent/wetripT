@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
+		<title>单程中转订单详情</title>
+		<link rel="stylesheet" type="text/css" href="../css/allOrder.css" />
+	</head>
+	<body>
+		<div class="bounced cancleBtn">
+			<div class="tips">
+				<p class="change">取消订单</p>
+				<div class="contentd">
+					<p>一旦取消将无法恢复</p>
+					<textarea name="a" placeholder="取消订单的理由" class="reason" id="cancel_reason" style="border-radius: 0.5rem; font-size:1.2rem; text-indent: 0.5rem;"></textarea>
+					<div class="btnA">
+						<a class="true-tips sureBtn" href="javascript:;">确定</a>
+						<a class="true-tips canBtn" href="javascript:;">取消</a>
+					</div>
+				</div>
+
+			</div>
+		</div>
+		<div class="bounced resoultlBtn">
+			<div class="tips">
+				<p class="change">拒绝订单</p>
+				<div class="contentd">
+					<p>一旦拒绝将无法恢复</p>
+					<textarea name="a" placeholder="拒绝订单的理由" class="reason" id="cancel_reason" style="border-radius: 0.5rem; font-size:1.2rem; text-indent: 0.5rem;"></textarea>
+					<div class="btnA">
+						<a class="true-tips sureBtn" href="javascript:;">确定</a>
+						<a class="true-tips canBtn" href="javascript:;">取消</a>
+					</div>
+				</div>
+
+			</div>
+		</div>
+		<div class="headerS"></div>
+		<section>
+			
+			<div class="one-way">
+				<div class="way-title">
+					<div class="tit-left">
+						<span class="way-type">原始订单</span>
+					</div>
+					<h5 class="audit">待审核</h5>
+				</div>
+				<div class="way-content">
+					<div class="tripWay" style="display: flex;flex-direction: row;">
+						<div>往返</div>
+						<div style="color: #333333; margin: auto 2rem;">
+							<span class="g-city">北京</span>
+							<span>-</span>
+							<span class="g-city">杭州</span>
+						</div>
+					</div>
+					<p style="font-size:1.3rem;color:#00afec;">去程</p>
+					<div class="flight">
+						<div class="left">
+							<div class="start">
+								<p class="tank">02-24</p>
+								<h5>
+									09:20
+								</h5>
+							</div>
+							<div class="start">
+								<p class="tank">02-24</p>
+								<h5>
+									11:45
+								</h5>
+							</div>
+						</div>
+						<img src="../img/luxian.png" / class="line">
+						<div class="right">
+							<div class="r-top">
+								<h5>首都机场T1</h5>
+							</div>
+							<div class="r-middle">
+								<span>
+									<img src="../img/type.png"/ >
+									海航HU7619
+								</span>
+								<span class="tank big">波音787(大)</span>
+								<span class="tank">经济舱</span>
+							</div>
+							<div class="r-bottom">
+								<h5>萧山机场T1</h5>
+							</div>
+						</div>
+					</div>
+					<div class="folding">
+						<div class="transit">
+							<img src="../img/zhuan.png" />
+							<div>
+								<h5>停留7h30m</h5>
+							</div>
+						</div>
+						<div class="flight">
+							<div class="left">
+								<div class="start">
+									<p class="tank">02-24</p>
+									<h5>
+									09:20
+								</h5>
+								</div>
+								<div class="start">
+									<p class="tank">02-24</p>
+									<h5>
+									11:45
+								</h5>
+								</div>
+							</div>
+							<img src="../img/luxian.png" / class="line">
+							<div class="right">
+								<div class="r-top">
+									<h5>首都机场T1</h5>
+								</div>
+								<div class="r-middle">
+									<span>
+									<img src="../img/type.png"/ >
+									海航HU7619
+								</span>
+									<span class="tank big">波音787(大)</span>
+									<span class="tank">经济舱</span>
+								</div>
+								<div class="r-bottom">
+									<h5>萧山机场T1</h5>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div style="text-align: center;" class="hidden">
+						<a href="javascript:;" class="closed" val="隐藏">隐藏 </a>
+						<img src="../img/xiala.png" / class="img">
+					</div>
+				</div>
+			</div>
+			<div class="check">
+				<div class="one">
+					<div class="list">
+						<div>改期第一次</div>
+					</div>
+					<div class="clickIcon">
+						<img src="../img/xiala.png" / class="img">
+					</div>
+				</div>
+				<div class="wayShow showList">
+					<div class="tripWay">单程</div>
+					<div class="flight">
+						<div class="left">
+							<div class="start">
+								<p class="tank">02-24</p>
+								<h5>
+									09:20
+								</h5>
+							</div>
+							<div class="start">
+								<p class="tank">02-24</p>
+								<h5>
+									11:45
+								</h5>
+							</div>
+						</div>
+						<img src="../img/luxian.png" / class="line">
+						<div class="right">
+							<div class="r-top">
+								<h5>北京</h5>
+								<h5>首都机场T1</h5>
+							</div>
+							<div class="r-middle">
+								<span>
+									<img src="../img/type.png"/ >
+									海航HU7619
+								</span>
+								<span class="tank big">波音787(大)</span>
+								<span class="tank">经济舱</span>
+							</div>
+							<div class="r-bottom">
+								<h5>杭州</h5>
+								<h5>萧山机场T1</h5>
+							</div>
+						</div>
+					</div>
+					<div>
+						<div class="transit">
+							<img src="../img/zhuan.png" />
+							<div>
+								<h5>杭州</h5>
+								<h5>停留7h30m</h5>
+							</div>
+						</div>
+						<div class="flight">
+							<div class="left">
+								<div class="start">
+									<p class="tank">02-24</p>
+									<h5>
+									09:20
+								</h5>
+								</div>
+								<div class="start">
+									<p class="tank">02-24</p>
+									<h5>
+									11:45
+								</h5>
+								</div>
+							</div>
+							<img src="../img/luxian.png" / class="line">
+							<div class="right">
+								<div class="r-top">
+									<h5>北京</h5>
+									<h5>首都机场T1</h5>
+								</div>
+								<div class="r-middle">
+									<span>
+									<img src="../img/type.png"/ >
+									海航HU7619
+								</span>
+									<span class="tank big">波音787(大)</span>
+									<span class="tank">经济舱</span>
+								</div>
+								<div class="r-bottom">
+									<h5>杭州</h5>
+									<h5>萧山机场T1</h5>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="check">
+				<div class="one">
+					<div class="list">
+						<div>改期第二次</div>
+					</div>
+					<div class="clickIcon">
+						<img src="../img/xiala.png" / class="img">
+					</div>
+				</div>
+				<div class="wayShow showList">
+					<div class="tripWay">单程</div>
+					<div class="flight">
+						<div class="left">
+							<div class="start">
+								<p class="tank">02-24</p>
+								<h5>
+									09:20
+								</h5>
+							</div>
+							<div class="start">
+								<p class="tank">02-24</p>
+								<h5>
+									11:45
+								</h5>
+							</div>
+						</div>
+						<img src="../img/luxian.png" / class="line">
+						<div class="right">
+							<div class="r-top">
+								<h5>北京</h5>
+								<h5>首都机场T1</h5>
+							</div>
+							<div class="r-middle">
+								<span>
+									<img src="../img/type.png"/ >
+									海航HU7619
+								</span>
+								<span class="tank big">波音787(大)</span>
+								<span class="tank">经济舱</span>
+							</div>
+							<div class="r-bottom">
+								<h5>杭州</h5>
+								<h5>萧山机场T1</h5>
+							</div>
+						</div>
+					</div>
+					<div>
+						<div class="transit">
+							<img src="../img/zhuan.png" />
+							<div>
+								<h5>杭州</h5>
+								<h5>停留7h30m</h5>
+							</div>
+						</div>
+						<div class="flight">
+							<div class="left">
+								<div class="start">
+									<p class="tank">02-24</p>
+									<h5>
+									09:20
+								</h5>
+								</div>
+								<div class="start">
+									<p class="tank">02-24</p>
+									<h5>
+									11:45
+								</h5>
+								</div>
+							</div>
+							<img src="../img/luxian.png" / class="line">
+							<div class="right">
+								<div class="r-top">
+									<h5>北京</h5>
+									<h5>首都机场T1</h5>
+								</div>
+								<div class="r-middle">
+									<span>
+									<img src="../img/type.png"/ >
+									海航HU7619
+								</span>
+									<span class="tank big">波音787(大)</span>
+									<span class="tank">经济舱</span>
+								</div>
+								<div class="r-bottom">
+									<h5>杭州</h5>
+									<h5>萧山机场T1</h5>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="cost">
+				<p><span class="greay">应付金额</span><span class="money">¥1458</span></p>
+				<p><span class="greay">机票</span><span class="money">¥659*2</span></p>
+				<p><span class="greay">税费</span><span class="money">¥50*2</span></p>
+				<p><span class="greay">保险</span><span class="money">¥20*2</span></p>
+			</div>
+			<div class="message">
+				<div class="list bor">
+					<span class="greay goType">出行方式</span>
+					<span class="name1">因公出行</span>
+				</div>
+				<div class="list">
+					<span class="greay goType">支付方式</span>
+					<span class="name1">预付款支付</span>
+				</div>
+			</div>
+			<div class="message">
+				<div class="list">乘机人</div>
+				<ul class="passenerItem">
+					<li class="list">
+						<div class="one">
+							<div>
+								<span class="greay goType">田晓</span>
+								<span>185123456789</span>
+							</div>
+							<div class="clickIcon">
+								<img src="../img/xiala.png" class="img">
+							</div>
+						</div>
+						<ul class="crewInfor showList">
+							<li class="inforF">
+								<div>
+									<span class="infor">身份证</span>
+									<span>13220119940619</span>
+								</div>
+								<div>
+									<span class="infor">费用归属</span>
+									<span>行政部</span>
+								</div>
+							</li>
+							<li class="inforF">
+								<div class="original">
+									<span class="infor">原始票号</span>
+									<span>456-7300000001</span>
+								</div>
+								<div>
+									<span class="infor">票面价格</span>
+									<span>¥5000</span>
+								</div>
+								<div>
+									<span class="infor">保险</span>
+									<span>¥20</span>
+								</div>
+								<div>
+									<span class="infor">服务费</span>
+									<span>¥50</span>
+								</div>
+							</li>
+							<li class="inforF">
+								<div class="original banks">
+									<span class="infor">改期票号</span>
+									<span class="stateT">改期拒绝</span>
+								</div>
+								<div>
+									<span class="infor">升舱费</span>
+									<span>¥5000</span>
+								</div>
+								<div>
+									<span class="infor">改期费</span>
+									<span>¥20</span>
+								</div>
+								<div>
+									<span class="infor">服务费</span>
+									<span>¥50</span>
+								</div>
+							</li>
+							<li class="inforF">
+								<div class="original banks">
+									<div>
+										<span class="infor">改期票号</span>
+										<span>456-7300000001</span>
+									</div>
+									<span class="stateT">改期通过</span>
+								</div>
+								<div>
+									<span class="infor">升舱费</span>
+									<span>¥5000</span>
+								</div>
+								<div>
+									<span class="infor">改期费</span>
+									<span>¥20</span>
+								</div>
+								<div>
+									<span class="infor">服务费</span>
+									<span>¥50</span>
+								</div>
+							</li>
+						</ul>
+					</li>
+					<li class="list">
+						<div class="one">
+							<div>
+								<span class="greay goType">田晓</span>
+								<span>185123456789</span>
+							</div>
+							<div class="clickIcon">
+								<img src="../img/xiala.png" class="img">
+							</div>
+						</div>
+						<ul class="crewInfor showList">
+							<li class="inforF">
+								<div>
+									<span class="infor">身份证</span>
+									<span>13220119940619</span>
+								</div>
+								<div>
+									<span class="infor">费用归属</span>
+									<span>行政部</span>
+								</div>
+							</li>
+							<li class="inforF">
+								<div class="original">
+									<span class="infor">原始票号</span>
+									<span>456-7300000001</span>
+								</div>
+								<div>
+									<span class="infor">票面价格</span>
+									<span>¥5000</span>
+								</div>
+								<div>
+									<span class="infor">保险</span>
+									<span>¥20</span>
+								</div>
+								<div>
+									<span class="infor">服务费</span>
+									<span>¥50</span>
+								</div>
+							</li>
+							<li class="inforF">
+								<div class="original banks">
+									<div>
+										<span class="infor">退票票号</span>
+										<span>456-7300000001</span>
+									</div>
+									<span class="stateT">待航司退票</span>
+								</div>
+								<div>
+									<span class="infor">退款理由</span>
+									<span>未填写退款理由</span>
+								</div>
+								<div>
+									<span class="infor">改期费</span>
+									<span>¥20</span>
+								</div>
+								<div>
+									<span class="infor">服务费</span>
+									<span>¥50</span>
+								</div>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+			<div class="message">
+				<div class="list">
+					<span class="greay goType">通知人</span>
+					<span class="name">田晓</span>
+					<span>185123456789</span>
+				</div>
+			</div>
+			<div class="message">
+				<div class="list">
+					<span class="greay goType">审核人</span>
+					<span class="name">李秀东</span>
+					<span>185123456789</span>
+				</div>
+			</div>
+			<footer class="footer-transit">
+				<div class="audit-list">
+					审核通过
+				</div>
+				<div class="refused-list">拒绝通过</div>
+				<div class="cancel-list">取消订单</div>
+			</footer>
+		</section>
+	</body>
+	<script type="text/javascript" src="../libs/jquery.min.js"></script>
+	<script type="text/javascript" src="../libs/Myconfirm.js"></script>
+	<script type="text/javascript">
+		/*-----页面加载头部---*/
+		$(".headerS").load("header.html", function(data) {
+			$('.zhixiang').html('订单号20170224A308');
+			$('header div img').on('click', function() {
+				window.history.back(-1);
+			});
+		});
+		/*-------点击收起和隐藏的效果----*/
+		$('.closed').on('click',function(){
+			$(this).attr('val', $(this).attr('val') == '隐藏' ? '收起' : '隐藏');
+			$(this).html($(this).attr('val'));
+			$(this).siblings().attr('src', $(this).siblings().attr('src') == '../img/xiala.png' ? '../img/dakai.png' : '../img/xiala.png');
+			$(this).parents('.way-content').find('.folding').slideToggle()
+		})
+		/*-------取消订单的弹框-------*/
+		$('.cancel-list').on('click', function() {
+			$('.cancleBtn').fadeIn()
+		});
+		$('.canBtn').on('click', function() {
+			$('.bounced').fadeOut();
+		});
+		/*----------拒绝通过的弹框----*/
+		$('.refused-list').on('click', function() {
+			$('.resoultlBtn').fadeIn();
+		});
+		/*---------是否要保存取消理由------*/
+		$('.sureBtn').eq(0).on('click', function() {
+			$('.bounced').fadeOut();
+			$(this).MyConfirm({
+				content: '确定要保存取消的理由吗？',
+				hasCancelBtn: true
+			});
+		});
+		/*----是否要保存确定的理由---------*/
+		$('.sureBtn').eq(1).on('click', function() {
+			$('.bounced').fadeOut();
+			$(this).MyConfirm({
+				content: '确定要保存拒绝的理由吗？',
+				hasCancelBtn: true
+			});
+		});
+		/*-----------改期第一次和第二次的点击事件*/
+		$('.clickIcon').on('click', function() {
+			$(this).children().attr('src', $(this).children().attr('src') == '../img/xiala.png' ? '../img/dakai.png' : '../img/xiala.png');
+			$(this).parents('.one').siblings().slideToggle()
+		});
+		
+		/*var url = window.location.href; //获取当前页面的url
+		var len = url.length; //获取url的长度值
+		var a = url.indexOf("?"); //获取第一次出现？的位置下标
+		var b = url.substr(a + 1, len); //截取问号之后的内容
+		var c = b.split("&"); //从指定的地方将字符串分割成字符串数组
+		var arr = new Array();
+		$('.tit-left .way-type').html(decodeURI(c[0].split("=")[1]));
+		$('.audit').html(decodeURI(c[1].split("=")[1]));
+		if($('.audit').html() == "undefined"){
+			$('.audit').html('已取消');
+			$('.audit').css('color','#c0c0c0');
+		}
+		if($('.tit-left .way-type').html() == "单程") {
+			$('.folding').css('display', 'none');
+			$('.hidden').css('display', 'none');
+			$('.flight').css('padding-bottom', '0.85rem');
+		}
+		if($('.audit').html() == "已审核" || $('.audit').html() == "已取消" ) {
+			$('.footer-transit').css('display', 'none');
+		}*/
+	</script>
+
+</html>

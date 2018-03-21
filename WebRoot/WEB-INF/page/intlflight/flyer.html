@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
+		<title>新增常旅客</title>
+		<link rel="stylesheet" type="text/css" href="../css/allOrder.css" />
+	</head>
+
+	<body>
+		<div class="bounced typeAdd">
+			<div class="payment-con" id="test">
+				<div class="payment-title">
+					<p>类型</p>
+				</div>
+				<div class="payment-choose">
+					<p>
+						<span>成人</span>
+						<img src="../img/choose.png" / class="selected">
+					</p>
+					<p>
+						<span>儿童</span>
+						<img src="../img/choose.png" / class="selected">
+					</p>
+					<p>
+						<span>婴儿</span>
+						<img src="../img/choose.png" / class="selected">
+					</p>
+				</div>
+			</div>
+		</div>
+		<div class="bounced cardAdd">
+			<div class="payment-con" id="tests">
+				<div class="payment-title">
+					<p>证件类型</p>
+				</div>
+				<div class="payment-choose">
+					<p>
+						<span>身份证</span>
+						<img src="../img/choose.png" / class="selected">
+					</p>
+					<p>
+						<span>因公护照</span>
+						<img src="../img/choose.png" / class="selected">
+					</p>
+					<p>
+						<span>因公港澳通行证</span>
+						<img src="../img/choose.png" / class="selected">
+					</p>
+				</div>
+			</div>
+		</div>
+		
+		<div class="con">
+			<header class="headerS"></header>
+			<section class="wrapL">
+				<ul class="content-flyer">
+					<li class="con-list bor">
+						<div>
+							<span class="name">姓名</span>
+							<input placeholder="必填" / id="username" name="username">
+						</div>
+					</li>
+					<li class="con-list bor">
+						<div>
+							<span class="name phone">手机号</span>
+							<input placeholder="必填" / id="phone">
+						</div>
+					</li>
+					<li class="con-list choose bor">
+						<div class="lefts">
+							<span class="name">类型</span>
+							<span class="name people">成人</span>
+						</div>
+						<span class="right">
+							<img src="../img/you.png" />
+						</span>
+					</li>
+					<li class="con-list">
+						<div>
+							<span class="name">邮箱</span>
+							<input placeholder="必填" / id="email">
+						</div>
+					</li>
+				</ul>
+				<div class="item">
+					<div class="item-title">证件信息</div>
+					<ul>
+						<li class="item-list">
+							<div class="type">
+								<div>
+									<span class="name">证件类型</span>
+									<span class="card card-type">身份证</span>
+								</div>
+								<span class="right">
+									<img src="../img/you.png" />
+								</span>
+							</div>
+							<div class="the">
+								<div>
+									<span class="name">证件号码</span>
+									<input placeholder="必填" / class="card" id="type">
+								</div>
+							</div>
+						</li>
+					</ul>
+				</div>
+				<footer class="footerF">
+					<p>保存</p>
+				</footer>
+			</section>
+			
+		</div>
+	</body>
+	<script type="text/javascript" src="../libs/jquery.min.js"></script>
+	<script type="text/javascript" src="../libs/Myconfirm.js"></script>
+	<script type="text/javascript">
+		/*-------------加载头部----------*/
+		$(".headerS").load("header.html", function(data) {
+			$('.zhixiang').html('新增常旅客');
+			$('header div img').on('click', function() {
+				window.history.back(-1);
+			});
+		});
+		/*-------------默认属性-----------*/
+		function defalutStyles(objStyles) {
+			$(objStyles).eq(0).css('color', '#00AFEC');
+			$(objStyles).find('.selected').eq(0).show();
+		};
+		defalutStyles('.typeAdd .payment-choose p'); //类型
+		defalutStyles('.cardAdd .payment-choose p'); //证件类型
+		/*-----成人，儿童，婴儿类型的选择框------*/
+		$('.choose').eq(0).on('click', function() {
+			sameTips('.typeAdd', '.typeAdd .payment-con', '16rem');
+		});
+		$('.typeAdd .payment-choose p').on('click', function() {
+			$(this).css('color', '#00AFEC').siblings().css('color', '');
+			$(this).find('.selected').show().parents('.typeAdd .payment-choose p').siblings().find('.selected').hide();
+			$('.typeAdd').delay(500).fadeOut(0);
+			$('.con-list .people').html($(this).find('span').eq(0).html());
+		});
+		/*----------证件类型选择的效果是实现------*/
+		var num = ($('.cardAdd .payment-choose p').length + 1) * 80 / 20 + 'rem';
+		$('.item-list .type').on('click', function() {
+			sameTips('.cardAdd', '.cardAdd .payment-con', num);
+		});
+		$('.cardAdd .payment-choose p').on('click', function() {
+			$(this).css('color', '#00AFEC').siblings().css('color', '');
+			$(this).find('.selected').show().parents('.cardAdd .payment-choose p').siblings().find('.selected').hide();
+			$('.cardAdd').delay(500).fadeOut(0);
+			$('.type .card-type').html($(this).find('span').eq(0).html());
+		});
+
+		function sameTips(objParent, objSilbling, numLength) {
+			$(objParent).fadeIn();
+			$(objSilbling).animate({
+				height: numLength
+			}, 1000)
+		};
+		$('.typeAdd').bind('click', function(e) {
+			hideLayer(e, 'test', '#test');
+		});
+		$('.cardAdd').bind('click', function(e) {
+			hideLayer(e, 'tests', '#tests');
+		});
+		/*-----删除除了div之外任何区域，遮罩层隐藏----------*/
+		function hideLayer(e, Obj, idAttr) {
+			var e = e || window.event; //浏览器兼容性   
+			var elem = e.target || e.srcElement;
+			while(elem) { //循环判断至跟节点，防止点击的是div子元素   
+				if(elem.id && elem.id == Obj) {
+					return;
+				}
+				elem = elem.parentNode;
+			}
+			$(idAttr).parents('.bounced').css('display', 'none'); //点击的不是div或其子元素 
+		}
+		$('.footerF').on('click', function() {
+			valiDation();
+		});
+		//验证各种信息的正则方法
+		var uname = $("#username").val();
+		var mess = "";
+
+		function valiDation() {
+			/*-----姓名不能为空的验证-----*/
+			if($("#username").val() == "") {
+				mess = "姓名不能为空";
+				showMessage(mess);
+				return false;
+			};
+			/*----手机号不能为空和正则表达式的验证*/
+			var reg = /^(13|15|18|14|17)[0-9]{9}$/;
+			if($("#phone").val() == "" || !reg.test($("#phone").val())) {
+				mess = "电话不能为空或者不符合要求";
+				showMessage(mess);
+				return false;
+			};
+			/*---邮箱验证不能为空和要符合要求*/
+			var reg2 = /^([a-zA-Z0-9]+[_|\-|\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|\-|\.]?)*[a-zA-Z0-9]+(\.[a-zA-Z]{2,3})+$/;
+			if($("#email").val() == "" || !reg2.test($("#email").val())) {
+				mess = "邮箱不能为空或者不符合要求";
+				showMessage(mess);
+				return false;
+			};
+			/*---身份证证件的验证--*/
+			var reg1 = /^(^[1-9]\d{7}((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])\d{3}$)|(^[1-9]\d{5}[1-9]\d{3}((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])((\d{4})|\d{3}[Xx])$)$/;
+			if($("#type").val() == "" || !reg1.test($("#type").val())) {
+				mess = "身份证证件号不能为空或者不符合要求";
+				showMessage(mess);
+				return false;
+			};
+			var count = $('input').eq(1).val();
+			var uname = $('input').eq(0).val();
+			var counts = $('input').eq(3).val();
+			window.location.href = "changlvke.html?name=" + uname + "&cont=" + count + "&idno=" + counts;
+		};
+
+		function showMessage(mess) {
+			$(this).MyConfirm({
+				content: mess
+			});
+		}
+	</script>
+
+</html>

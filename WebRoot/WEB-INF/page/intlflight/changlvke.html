@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
+		<title>常旅客</title>
+		<link rel="stylesheet" type="text/css" href="../css/allOrder.css" />
+	</head>
+
+	<body>
+		<header class="addH">
+			<div class="turnIcon">
+				<img src="../img/header.png" />
+			</div>
+			<div class="title">常旅客</div>
+			<div class="login">
+				<img src="../img/addBtn.png" style="display: block;">
+			</div>
+		</header>
+
+		<section>
+			<div class="Tab">
+				<div class="tabContent">
+					<ul style="display: block;">
+						<li>
+							<p class="editor">
+								<span class="passener-name">田晓</span>
+								<span class="edit"><img src="../img/bianji.png"/></span>
+							</p>
+							<p>
+								<span class="name">手机号</span>
+								<span class="passener-phone">15512851217</span>
+							</p>
+							<p>
+								<span class="name">身份证</span>
+								<span class="passener-type">14162188743921187</span>
+							</p>
+						</li>
+						<li>
+							<p class="editor">
+								<span class="passener-name">田晓真</span>
+								<span class="edit"><img src="../img/bianji.png"/></span>
+							</p>
+							<p>
+								<span class="name">手机号</span>
+								<span class="passener-phone">15512851217</span>
+							</p>
+							<p>
+								<span class="name">身份证</span>
+								<span class="passener-type">14162188743921187</span>
+							</p>
+						</li>
+						<li>
+							<p class="editor">
+								<span class="passener-name">田晓燕</span>
+								<span class="edit"><img src="../img/bianji.png"/></span>
+							</p>
+							<p>
+								<span class="name">手机号</span>
+								<span class="passener-phone">15512851217</span>
+							</p>
+							<p>
+								<span class="name">身份证</span>
+								<span class="passener-type">14162188743921187</span>
+							</p>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</section>
+
+	</body>
+
+</html>
+<script type="text/javascript" src="../libs/jquery.min.js"></script>
+<script type="text/javascript" src="../libs/Myconfirm.js"></script>
+<script type="text/javascript">
+	$('.login img').on('click', function() {
+		window.location.href = "flyer.html";
+	});
+	/*---删除常旅客列表的效果-----*/
+	var num;
+	$('body').on('click', '.tabContent li', function(event) {
+		event.stopPropagation();
+		num = $(this);
+		$(this).MyConfirm({
+			content: "确定要删除此条信息",
+			hasCancelBtn: true
+		}, callback);
+	});
+
+	function callback(isConfirm) {
+		if(isConfirm == true) {
+			num.hide();
+		}
+	};
+	/*event.stopPropagation(); 让父级的事件不影响子级*/
+	$('body').on('click','.edit', function(event) {
+		event.stopPropagation();
+		var uname = $(this).parents('li').find('.passener-name').html();
+		var count = $(this).parents('li').find('.passener-phone').html();
+		var counts = $(this).parents('li').find('.passener-type').html();
+		window.location.href = "flyer.html?name=" + uname + "&cont=" + count + "&idno=" + counts;
+
+	});
+	$('.turnIcon img').on('click', function() {
+		window.history.back(-1);
+	});
+	var url = window.location.href; //获取当前页面的url
+	var len = url.length; //获取url的长度值
+	var a = url.indexOf("?"); //获取第一次出现？的位置下标
+	var b = url.substr(a + 1, len); //截取问号之后的内容
+	var c = b.split("&"); //从指定的地方将字符串分割成字符串数组
+	var arr = new Array(); //新建一个数组	
+	addLi();
+
+	function addLi() {
+		var str = `<li>
+							<p class="editor">
+								<span class="passener-name">${decodeURI(c[0].split("=")[1])}</span>
+								<span class="edit"><img src="../img/bianji.png"/></span>
+							</p>
+							<p>
+								<span class="name">手机号</span>
+								<span class="passener-phone">${c[1].split("=")[1]}</span>
+							</p>
+							<p>
+								<span class="name">身份证</span>
+								<span class="passener-type">${c[2].split("=")[1]}</span>
+							</p>
+						</li>`;
+
+		$('ul').append(str);
+	}
+</script>

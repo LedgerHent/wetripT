@@ -1,0 +1,10 @@
+package com.viptrip.hotel.service;
+
+import java.util.List;
+
+import com.viptrip.wetrip.model.employees.CompanyInfo;
+
+public interface GetDepartmentsService {
+	CompanyInfo getAllOrg(int id,CompanyInfo topTacOrg,List<CompanyInfo> childs);
+	List<CompanyInfo> getOrgChildById(int id);
+}

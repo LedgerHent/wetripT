@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<taglib xmlns="http://java.sun.com/xml/ns/j2ee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd"
+    version="2.0">
+	<tlib-version>1.0</tlib-version>
+    <!-- <jspversion>1.1</jspversion> -->
+    <short-name>bean</short-name>
+    <uri>/masterpage</uri>
+    <tag>
+        <name>Content</name>
+        <tag-class>com.viptrip.masterTag.ContentTag</tag-class>
+        <body-content>JSP</body-content>
+        <attribute>
+            <name>contentPlaceHolderId</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+    <tag>
+        <name>ContentPlaceHolder</name>
+        <tag-class>com.viptrip.masterTag.ContentPlaceHolderTag</tag-class>
+        <body-content>JSP</body-content>
+        <attribute>
+            <name>id</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+    <tag>
+        <name>MasterPage</name>
+        <tag-class>com.viptrip.masterTag.MasterPageTag</tag-class>
+        <body-content>JSP</body-content>
+        <attribute>
+            <name>id</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+    <tag>
+        <name>ContentPage</name>
+        <tag-class>com.viptrip.masterTag.ContentPageTag</tag-class>
+        <body-content>JSP</body-content>
+        <attribute>
+            <name>materPageId</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+</taglib>

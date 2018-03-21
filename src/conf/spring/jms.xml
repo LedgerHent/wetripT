@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans 
+	xmlns="http://www.springframework.org/schema/beans" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans 
+		http://www.springframework.org/schema/beans/spring-beans.xsd
+">
+	
+	<!-- 配置JMS连接工厂 -->
+    <bean id="connectionFactory" class="org.apache.activemq.ActiveMQConnectionFactory">
+        <property name="brokerURL" value="failover:(tcp://localhost:61616)" />
+        <property name="closeTimeout" value="60000" />  
+        <property name="userName" value="producer" />  
+        <property name="password" value="admin123" />  
+        <property name="optimizeAcknowledge" value="true" />  
+        <property name="optimizedAckScheduledAckInterval" value="10000" />
+    </bean>
+     
+    <!-- 定义消息队列（Queue） -->
+    <!-- <bean id="queueDestination" class="org.apache.activemq.command.ActiveMQQueue">
+        <constructor-arg>
+            <value>zcjy</value>
+        </constructor-arg>
+    </bean> -->
+     
+    <!-- 配置JMS template -->
+    <bean id="jmsTemplate" class="org.springframework.jms.core.JmsTemplate">
+        <property name="connectionFactory" ref="connectionFactory" />
+        <!-- <property name="defaultDestination" ref="queueDestination" /> -->
+        <property name="receiveTimeout" value="10000" />
+    </bean>
+    
+</beans>

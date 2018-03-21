@@ -1,0 +1,102 @@
+####说明文件####
+两种方式调用ETUF框架
+1、配置springMVC的action，action调用Client实例
+	demo代码详见：
+		a.Action:TestAction
+		b.Controller:Test
+		c.Model:Request_Test、Response_Test
+	具体流程为：request请求进入TestAction对应方法，方法内部调用Test的ClientRequest并返回结果
+2、页面发送AJAX请求，直接访问server，参数带上method指向对应的Client类名
+	demo请参考页面：http://localhost:8080/wetrip/goto.act?page=test/test_etuf;
+		该demo的页面位置：WEB-INF/page/test/test_etuf.jsp
+	具体流程为：页面请求http://localhost:8080/wetrip/server/ticketServer该路径，传入参数为json格式的字符串，记住不能直接传json对象
+	示例请求：
+		var url = "http://localhost:8080/wetrip/server/ticketServer";
+		var para = {"method":"Test","userId":"123456"};
+		$.post(
+			url,
+			{'data': JSON.stringify(para)},//记住此处传的data值必须为字符串，不能直接传入json对象
+			function(data){
+				$("#result").val(data);
+			}
+		);
+
+
+说明:
+	1、tomcat配置：进入tomcat目录，在conf\context.xml中的Context节点中添加   <Loader delegate="true" />
+	2、tomcat启动报错connection timed out: /172.16.249.51:6379时，请停掉tomcat然后重新启动即可
+	
+【特别说明】
+ETUF框架中的model，能用简单类型的一定要用简单类型，不要用复杂类型，麻烦也容易出错。和别人交互也容易出现理解偏差。
+比如说整数，本来想用int，但是考虑到数据库查询返回的long，就用long，不要用Integer,Long这类的。
+复杂对象是允许null的，序列化得到的是null，而接口所用的一般都是简单类型，int，long如果不赋值序列化得到的是默认值0。
+
+【mapKey格式】
+格式：行程类别_乘客类型_舱位类型_出发城市_到达城市_出发时间1*出发时间2|航班号#舱位-价格协议_中转航班号#舱位-价格协议*航班号#舱位-价格协议_中转航班号#舱位-价格协议
+示例：RT_ADT_A_PEK_SHA_2017-04-15*2017-04-25|CA1234#F1-PUBLIC*CA1235#F-AGREEMENT_MU538#C-PRIVATE
+行程类别：单程-OW，往返—RT,联程—UN
+乘客类型：成人-ADT，儿童-CHD，婴儿-INF
+舱位类型：不限-A，头等舱—F，公务舱-C，经济舱-Y，头等舱+公务舱-FC
+出发城市：即出发城市三字码，如PEK，SHA
+到达城市：即到达城市三字码，如PEK，SHA
+出发时间1*出发时间2：根据航程，有几段就有几个出发时间，不同时间之间用*分隔，示例的是往返程，两段行程
+航班号#舱位-价格协议：舱位可能含子舱位，如F1，如果这一程含中转航班，以 _中转航班号#舱位-价格协议 的形式提现，支持多个中转
+价格协议：公布运价-PUBLIC，协议价-AGREEMENT，私有运价-PRIVATE，其他价格—ELSE。其他价格能确定的，再单独命名
+
+目前我们系统的国内机票，其实都是单程的，不存在往返或者联程，现在系统的往返和联程是多个单程的集合
+
+【关于提示信息】
+统一信息提示已经提交，具体使用方法请参见 index.jsp 页面
+	<!-- 使用自定义弹框，必须要引用如下两个js和一个css -->
+	<script type="text/javascript"  src="js/jquery-1.11.2.min.js"></script>
+	<script type="text/javascript"  src="js/MyConfirm.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/MyConfirm.css">
+	
+  <script type="text/javascript">
+  	function showMessage(){
+  		//有很多可用参数，详见jquery插件，以下是用法示例
+  		$(this).MyConfirm({
+            content: "提示信息啊！！！",
+            hasCancelBtn:true
+        },callback);
+  	}
+  	
+  	function callback(isConfirm){
+  		$(this).MyConfirm({
+            content: "你刚点击了"+(isConfirm?"确认":"取消") +"按钮。"
+        });
+  	}
+  </script>
+  
+  如果要实现弹框页面的高斯模糊效果，只需要在弹框页面加一个div，id="container" 即可。全屏毛玻璃效果，则直接在body下面整个加这个div即可
+
+【关于mobiscroll日历控件】
+官方示例：https://demo.mobiscroll.com/v3/calendar#demo=date
+使用说明：使用方法请参见 index.jsp 页面
+	<!-- 使用 mobiscroll 日历控件，必须引入如下的js和css -->
+	<script type="text/javascript" src="js/mobiscroll.custom-3.0.0-beta2.min.js"></script>
+	<link rel="stylesheet" href="css/mobiscroll/mobiscroll.custom-3.0.0-beta2.min.css" type="text/css"></link>
+	
+	$(document).ready(function() {
+		var now = new Date(),
+	    min = new Date(now.setDate(now.getDate() + 1)),
+	    max = new Date(now.getFullYear()+1, now.getMonth() + 6, now.getDate());
+		$("#txtDate").mobiscroll().calendar({
+			theme : 'ios',
+			lang : 'zh',
+			display : 'bottom', //显示位置 bottom/top/center/bubble/inline 
+			//controls : [ 'calendar', 'time' ], //日历，时间，默认只有日历
+			showScrollArrows : true,
+			headerText: '显示文字',
+		    min: min,
+			max: max,
+			calendarScroll: 'vertical', //滑动放向 vertical/horizontal
+			yearChange: true, //是否允许修改年
+			months: 'auto',	//自动判别显示几个月份
+			//counter: true,	//是否显示选择了几天，会覆盖 headerText
+	        //select: 'multiple'//选择方式（控制多选天）
+	        
+		});
+	});
+	
+	

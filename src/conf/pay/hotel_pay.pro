@@ -1,0 +1,17 @@
+##酒店支付配置##
+#是否测试
+isTest=true
+#最大发送次数
+maxCount=11
+#己方回跳地址
+returnURL=http://61.51.80.138:8099/wetrip/hotelPay/ali_return.act
+#己方通知地址
+notifyURL=http://61.51.80.138:8099/wetrip/hotelPay/ali_notify.act
+#酒店方回跳地址
+hotel.returnURL=http://10.0.8.53:8080/caissa-tmc/pay/payCallback.do 
+#酒店方通知地址
+hotel.notifyURL=http://10.0.8.53:8080/caissa-tmc/pay/paySuccess.do
+#酒店h5通知地址
+hotelH5.notifyURL=http://10.0.8.53:8081/caissa-tmc/pay/payCallbackNew.do
+#酒店h5回调地址
+hotelH5.returnURL=/hotelOrder/returnPay.act

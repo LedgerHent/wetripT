@@ -1,0 +1,26 @@
+/*------------------清空默认样式---------------*/ 
+*{margin:0;padding:0}
+li {list-style:none}
+img {vertical-align:top;border:none}
+a {text-decoration:none;}
+/*--------------------公用样式--------------------*/
+html {font-size:20px;font-family:Arial,"Microsoft YaHei";}
+header {height:4rem;background:#00afec;display:flex;flex-direction:row;margin-bottom: 1rem;}
+header .number{font-size: 1.8rem;color: #FFFFFF;text-align: center;line-height: 4rem;margin: auto;}
+header .arrow{margin: auto 0;}
+header .arrow img{vertical-align: middle;margin-left: 1.25rem;width: 1.05rem;height: 1.8rem;}
+body {background:#f0eff5;width:100%;height:100%;display: block;}
+.wrap{margin: 0 0.5rem;width: auto; margin-bottom: 1.5rem;}
+
+/*----------手机号码验证-------*/
+.verify{background: #FFFFFF;border-radius: 0.5rem;font-size: 1.5rem;}
+.verify li{padding: 0 1rem; line-height: 4.4rem; display: flex;flex-direction: row;justify-content: space-between;}
+.verify li:nth-of-type(1){border-bottom: 0.1rem dotted #CCCCCC;}
+.verify span{display: inline-block;margin-right: 1rem;}
+.verify input{border: none;outline: none;background: #FFFFFF;font-size: 1.5rem;}
+.verify img{width: 1.5rem;height: 1.5rem;vertical-align: middle;cursor: pointer;display: none;}
+.obtain{margin: auto 0;flex-grow: .5;}
+.obtain p{line-height: 2rem;background: #00AFEC;color: #FFFFFF;text-align: center;font-size: 1rem;border-radius: 1rem;}
+.binding{margin:  3.6rem 1rem 0; width: auto;background: #ff7e00;height: 4rem; line-height: 4rem;text-align: center;border-radius: 0.5rem;}
+.binding a{font-size: 1.5rem;color: #FFFFFF;}
+.click{flex-grow: 2;}

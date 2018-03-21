@@ -1,0 +1,386 @@
+/*------------------清空默认样式---------------*/ 
+*{margin:0;padding:0}
+li {list-style:none}
+img {vertical-align:top;border:none}
+a {text-decoration:none;}
+/*--------------------公用样式--------------------*/
+html {font-size:62.5%;font-family:Arial,"Microsoft YaHei";}
+#header,.addH{display: flex;flex-direction: row;justify-content: space-between;padding: 0 1rem;background: #00afec;height: 4rem;line-height: 4rem;}
+header .icon img{width: 2rem;height: 1.9rem;cursor: pointer;vertical-align: middle;}
+header .login .Icon{width: 1.9rem;height: 1.9rem;cursor: pointer;margin-top: 1.1rem;}
+.login span{font-size: 1.3rem;color: #FFFFFF;line-height: 4.5rem;}
+header .title{font-size: 1.8rem;color: #FFFFFF;}
+.addH{margin-bottom: 1rem;}
+.addH .login img{width: 2.3rem;height: 2.3rem; display: none;}
+.addH .login{margin: auto 0;}
+.addH .turnIcon img{margin-left: 0;}
+.headerData{display:flex;flex-direction:row;justify-content: space-between;padding: 0.25rem 1.5rem;height: 3.5rem;margin-bottom: 0.5rem;background: #00afec;}
+.headerData .today{width: 10rem;height: 2.7rem;background: #f0eff5; border-radius: 0.5rem;}
+.headerData .today p{color:#ff7e00;}
+.headerData .timeData{padding: 0.5rem 0 0.3rem 0; text-align: center;}
+.headerData .timeData p{font-size: 1.2rem; line-height: 1.5rem; }
+.yesterday p,.tomorrow p{color: #FFFFFF;}
+.headerS  header,.headers header{width: 100%;background:#00afec;height: 4rem;line-height: 4rem;display: flex;flex-direction: row;margin-bottom: 1rem;}
+ header .turnIcon img{width: 1.05rem;height: 1.8rem;margin-top: 1.1rem;margin-left: 1.3rem;}
+ header .zhixiang{margin: auto;font-size: 1.8rem;color: #FFFFFF;}
+ header .zhixiang img{ vertical-align:middle;width: 1.35rem;height: 0.35rem;}
+body {background:#f0eff5;width:100%;height:100%;display: block;}
+section{margin: 1rem 0.5rem 0;width: auto;}
+
+
+/*----首页的样式，机票预订------*/
+.bgTable{height: 14rem;width: 100%; position: relative;}
+.bgTable img{width: 100%; height: 100%; }
+.opacity{background:rgba(0,0,0,.5);display: flex;flex-direction: row;justify-content: space-between;position: absolute;left: 0;bottom: 0; padding: 0 1%;width:98%;height:4rem;}
+.formula{font-size: 1.5rem; color: #FFFFFF;line-height: 4.4rem;text-align: center;height: 4.4rem; cursor: pointer;flex: 1;border-radius: 0.2rem 0.2rem 0 0;}
+.forActive{background: #FFFFFF;color: #00AFEC;}
+.listway{background: #FFFFFF; padding: 0 0.75rem 1rem; display: none;}
+.chooseCity{display: flex;flex-direction: row;justify-content: space-between;}
+.chooseCity .chooseGO{border-bottom: 0.05rem solid #CCCCCC;line-height: 2.1rem;padding: 1.15rem 0.85rem 1rem 0 ; flex: 1;}
+.chooseGO .hCity,.cityTime .hCity,.ticketChoose .hCity{font-size: 2rem;}
+.chooseGO p,.cityTime p,.ticketChoose p{font-size: 1.2rem; color: #666666;}
+.dateTime .weekS,.dateTime .weekW,.dateTime .weekT{font-size: 1.2rem;}
+.listway input{border: 0;outline: none;background: #FFFFFF;height: 2.5rem;font-size: 2rem;width: 5rem;}
+.dateTime span{color: #fea700; margin: 0.4rem 0 0 0.6rem;}
+.chooseCity .wayIcon{width: 2.3rem;height: 2.3rem; margin-top: 3.6rem;}
+.wayIcon img{width: 100%;height: 100%;}
+.chooseCity .adressCity{text-align: right;}
+.cityTime{border-bottom: 0.05rem solid #CCCCCC; line-height: 2.1rem; padding: 1.15rem 0 1rem;}
+ .dateTime{display: flex;flex-direction: row;}
+.ticketGight{display: flex;flex-direction: row;justify-content: space-around;padding-top: 1.5rem;}
+.ticketGight .ticketChoose{text-align: center;flex: 1;}
+.ticketGight .classEco{border-right: 0.05rem solid #CCCCCC;}
+.oneSearch{background: #ffb24d; color: #FFFFFF; line-height: 4rem; text-align: center; border-radius: 0.5rem; font-size: 1.8rem;margin:2rem 1rem 0;}
+.showLogin{display: block;}
+.opacity .typeC{height:4.4rem;position: absolute;top: -0.4rem;display: flex;flex-direction: row;justify-content: space-between;width:98%}
+
+/*--------国内国际城市的切换--------*/
+#tab-country {display: flex;flex-direction: row;justify-content: center;margin-bottom: 2rem;}
+#tab-country div {width: 10rem;line-height: 1.8rem;text-align: center;margin: 0 1rem;border: 0.1rem solid #CCCCCC;border-radius: 0.5rem;cursor: pointer;}
+.defaultcolor {background: #00AFEC;color: #333333;}
+.guoji{display: none;}
+.showContry{display: block;}
+
+/*---------------地点插件的样式---------------*/
+.city-container{width:100%;background-color:#fff;z-index:9999;padding-top:2rem;}
+.city-title{font-size:1.2rem;color:#a9a9a9;margin-bottom:1rem;padding:0 1.5rem}
+.city-list{overflow:hidden;padding:0 5rem 0 1.5rem}
+.country {display: flex;flex-direction: row;justify-content: flex-start;flex-wrap: wrap;}
+.city-list li {color:#3c4d5d;font-size:1.5rem;line-height:2rem;background:#fff;border:1px solid #bbc1c8;border-radius:5px;width:10rem;cursor:pointer;text-align: center;margin:0 1rem 1rem 0;}
+/*显示点击是哪个字母*/
+.showLetter{position: fixed;color:#00C7C7;width: 2rem;height:2rem;top:50%;left: 50%;border-radius: 50%;border: #00C7C7 1px solid;text-align: center;display: none;margin-top: -1rem;,margin-left: -1rem;}
+.showLetter span{width: 2rem;height: 2rem;line-height: 2rem;font-size: 1.5rem}
+
+/*城市弹层*/
+.letter{width:auto;position:fixed;top:10%;right:10px;text-align:center;}
+.letter ul li a{color:#00C7C7;font-size: 1rem;}
+.city{width:100%;overflow:hidden;}
+.city-list .city-letter{font-size:1.5rem;display:inline-block;padding-top:15px;padding-bottom:5px;border-bottom:1px solid #e8ecf1;width:100%;}
+.city-list p{color:#afafaf;width:95%;height:50px;line-height:50px;border-bottom:1px solid #e8ecf1;cursor:pointer;font-size: 1rem;}
+.UISelect{margin-top:5px;}
+
+/*------遮罩层的样式------*/
+.bounced {width:100%;height:100%;position:fixed;left:0;top:0;background:rgba(0,0,0,0.4);display:none;z-index:100;}
+.payment .payment-con,.instructe .payment-con,.department .payment-con,.typeAdd .payment-con,.cardAdd .payment-con,.insurances .payment-con,.adminlist .payment-con{width:100%;margin:0 auto;background:#FFFFFF;border-radius:0.5rem;position:fixed;left:0;bottom:0;z-index:300000000;height:0;}
+.payment-con .payment-title {line-height:4rem;font-size:1rem;text-indent:1.05rem;background:#00AFEC;color:#FFFFFF;}
+.payment-con .payment-choose p {font-size:1.5rem;text-indent:1.05rem;line-height:4rem;color:#666666;border-bottom:0.05rem solid #CCCCCC;display:flex;flex-direction:row;justify-content:space-between;}
+.payment-choose .selected {width:2.2rem;height:2.2rem;margin-right:1.05rem;margin-top:1rem;display:none;}
+.boun-con{width: 30rem;position: fixed;left: 50%;top: 50%;margin-left: -15rem;margin-top: -10rem;}
+.bounced .change{font-size: 1.5rem;text-align: center;color: #FFFFFF;line-height: 4.4rem;}
+
+/*-------搜索列表页-----------*/
+.timeTips{background: #FFFFFF; border-radius: 0.5rem;line-height: 2.5rem;text-align: center;font-size: 1.2rem;color: #00afec;}
+.itemFlight .listFight{padding: 1.9rem 1rem 0;background: #FFFFFF; border-radius: 0.5rem; overflow:hidden;margin-top: 0.5rem;}
+.itemFlight .listFight .flightLeft{ float: left;}
+.itemFlight .listFight .flightRight{float: right;}
+.flightLeft .timeTop{display: flex;flex-direction: row;justify-content: space-around;}
+.flightLeft .timeTop h4{font-size: 1.8rem; color: #333333; font-weight: bold;}
+.flightLeft .timeTop p{font-size: 1.2rem; color: #666666;}
+.timeTop .starting,.timeTop .endding,.timeTop .route{text-align: center; height: 3.5rem;}
+.endding .endH{display: flex;flex-direction: row;justify-content: space-around;}
+.endding #addOne{font-size: 1rem; color: #ff7e00;font-weight: normal;margin-left: 0.5rem;}
+.priced .moneys{font-size: 0.9rem;}
+.endding h4 .endTime{font-size: 1.8rem; font-weight: bold; color: #333333;}
+.timeTop .route{display: flex;flex-direction: column;}
+.timeTop .route p{font-size: 1rem;}
+.timeTop .route .stopCity{color:#00afec;}
+.timeTop .route .turnCity{color:#ff7e00;}
+.timeTop .route img{width: 9rem; height: 0.55rem;}
+.flightLeft .flightBot{font-size: 1rem; color: #999999; line-height: 3.5rem;}
+.flightLeft .flightBot img{width: 1.1rem; height: 1rem; margin-right: 0.5rem; vertical-align: middle;}
+.flightBot .boeing{margin: 0 1rem;}
+.flightRight .priced{font-size: 1.8rem; color: #ff7e00;}
+.flightRight .counPrice{text-align: right; line-height: 1.4rem; font-size: 0.9rem; margin-top: 1rem;color: #999999;}
+.tlist-footer{background:#434456;display:flex;height:5rem;position:fixed;left:0;bottom:0;width:100%;flex-direction: row;justify-content: space-around;}
+.tlist-footer .iconImg{height:3.4rem;text-align:center;line-height:3.4rem;display:flex}
+.tlist-footer a img{width:2.3rem;height:2.3rem;text-align:center;margin:auto}
+.tlist-footer .botContent{font-size:1rem;text-align:center;color:#fff}
+.yesterday .color{color: #c0c0c0;}
+.screeningContent{background: #FFFFFF;position: fixed;bottom: 0;left: 0;z-index: 99;width: 100%;cursor: pointer;}
+.screeningMessage{max-height: 20rem; overflow: auto;}
+.screeningContent .screeningTitle{padding: 0 1.5rem;background: #124354; line-height: 4rem;display: flex;flex-direction: row;justify-content: space-between;font-size: 1.5rem;color: #FFFFFF;}
+.screeningTitle .empty{width: 6rem;background: #6293a4;height: 2.5rem;line-height: 2.5rem;text-align: center;margin: auto;border-radius: 0.5rem;font-size: 1.2rem;}
+.screeningTitle .sure{color: #00afec;}
+.departurTime,.airlines,.spaceChoose{padding: 0.5rem 1.5rem 0.8rem;}
+.departurTime .departurTitle,.airlines .airlinesTitle,.spaceChoose .spaceTitle{line-height: 3rem;font-size: 1rem; color: #999999;}
+.departurList li,.airlinesList li,.spaceList li{display: flex;flex-direction: row; flex-wrap:wrap}
+.departurList p,.airlinesList p,.spaceList p{width: 7.4rem;height: 2.4rem;border: 0.05rem solid #CCCCCC;line-height: 2.4rem;text-align: center;border-radius: 0.5rem;margin-right: 1.5rem;cursor: pointer;margin-bottom: 1rem;}
+.screeningMessage .hidden{color:#00afec;}
+
+
+/*------------提示框的样式---------------*/
+.tip {}
+.tip-pop{ position:fixed; width:100%; height:100%; left:0; top:0; background-color:rgba(0,0,0,0.4); z-index:99999999;}
+.tip-con{ position: fixed;left:50%;top:50%;margin-left:-12.5rem;margin-top:-12rem; width:25rem; background-color:#fff; border-radius:10px; overflow:hidden; z-index: 999999999;}
+.tip-top{ height:2.5rem; background:url(../images/icon-37.png) no-repeat 8px center #01AFEC; background-size:1.5rem;padding-left:2.5rem;  line-height:2.5rem; font-size:1.25rem; color:#fff; font-family:Arial,"Microsoft YaHei"; font-weight:bold;}
+.tip-cer dt{ padding:1.67rem 0.83rem; text-align:center; line-height:1.67rem; text-align:center; font-size:1.25rem; font-family:Arial,"Microsoft YaHei";}
+.tip-cer .tip-input{ padding:5px 1%; border:1px solid #ccc; width:98%;}
+.tip-cer dd{ border-top:1px solid #d2d2d2; display:flex;flex-direction:row;justify-content: space-around;}
+.tip-cer dd a{ line-height:2.5rem; text-align:center; width:50%; margin-left:-1px; border-left:1px solid #d2d2d2; font-size:1.5rem; font-family:Arial,"Microsoft YaHei";} 
+.tip-cer dd a._over{ color:#22a73c;}
+.tip-loading{width:100%; height:100%;background:url(../images/loading.gif) no-repeat center;}
+.listway input{border: 0;outline: none;background: #FFFFFF;height: 2.5rem;font-size: 2rem;width: 5rem}
+.con-list input{font-size: 1.5rem;border: 0;outline: none;background: #FFFFFF;}
+
+/*--------------舱位列表的样式-------*/
+.content-space {background:#FFFFFF;border-radius:0.5rem;font-size:1.2rem;padding-top:1.85rem;padding-bottom:1.95rem;display:flex;flex-direction:row;justify-content:space-between;}
+.content-space .con-top {margin:0 auto;color:#666666;}
+.content-space .color {/*padding-left:5.1rem;padding-right:4.15rem;*/text-align:center;}
+.color img {width:1.1rem;height:1rem;margin-top:0.3rem;}
+.content-space .con-mid {text-align:center;}
+.content-space .start p,.content-space .finish p {font-size:1.2rem;text-align:center;}
+.content-space .start ,.content-space .finish {line-height:2.5rem;margin-top:1.3rem;}
+.con-top h3 {font-size:2rem;color:#222222;}
+.fly p {font-size:1rem;text-align:center;margin-top:2rem;}
+.shift-space {margin-top:0.5rem;background:#FFFFFF;border-radius:0.5rem;font-size:1.2rem;padding-left:1.5rem;padding-right:1.5rem;padding-top:0.8rem;padding-bottom:0.3rem;}
+.shift-space .list-space {display:flex;flex-direction:row;justify-content:space-between;}
+.shift-space .list-space h3 {color:#ff7e00;font-size:1.8rem; line-height: 2.5rem;margin: 0 0.5rem;}
+.shift-space .list-space .h3 span {font-size:0.9rem; margin-top: 1rem; color:#ff7e00;}
+.shift-space .list-space .h3 .contain {font-size: 0.9rem;color: #999999;margin-top: 0.8rem;}
+.shift-space .list-space .h3{display: flex; flex-direction: row;justify-content: flex-start;}
+.shift-space .list-space .discount {line-height:3.1rem;font-size:1.2rem;color:#666666;}
+.list-space .discount a {color:#00afec;margin-left:1.1rem;}
+.shift-space .list-space span {margin-top:1.7rem;font-size:1.8rem;}
+.list-space .orderd {background:#ff7e00;}
+.list-space .ticket {width:4.4rem;height:4.4rem;line-height:4.4rem;border-radius:1rem;text-align:center;color:#FFFFFF;border:0.05rem solid #ff7e00;}
+.ticket-one {font-size:1.8rem;}
+.ticket-two {font-size:1.2rem;}
+.ticket-tree {font-size:1rem;}
+.ticket2 {font-size:1.2rem;}
+.con-mid p:last-child{margin-top: 1.5rem;}
+.ticket .make {background:#ff7e00;height:2.8rem;line-height:2.8rem;border-top-left-radius:0.8rem;border-top-right-radius:0.8rem;}
+.ticket .remaining {font-size:1rem;color:#ff7e00;height:1.55rem;line-height:1.55rem;}
+.contents {margin:0 1.2rem;width:auto;background:#FFFFFF;border-radius:0.5rem;font-size:1.2rem;padding-top:0.7rem;padding-bottom:1rem;padding-left:1rem;padding-right:1.1rem;max-height: 10rem;overflow: auto;}
+.bounced .tips {margin-top:10.5rem;}
+.contents p {line-height:1.8rem;}
+.contents span {color:#ff3c00;}
+.closedBtn{width: 100%;text-align: center;}
+.closedBtn img{width: 3.1rem;height: 3.1rem;margin: 1.5rem auto;cursor: pointer;}
+.bounced .tips{ width: 30rem;position: fixed;left: 50%;top: 50%;margin-top: -15rem;margin-left: -15rem;overflow: hidden;z-index: 9999;}
+
+/*-----------全部订单样式---------*/
+.allList li {background:#FFFFFF;border-radius:0.5rem;font-size:1.5rem;color:#333333;margin-bottom: 1rem;}
+.one-way .way-title {padding:0 1rem;display:flex;flex-direction:row;justify-content:space-between;border-bottom:0.05rem dotted #CCCCCC;line-height:4rem;}
+.way-title .way-type {color:#00afec;}
+.way-title .way-num {color:#333333;margin-left:3rem;}
+.way-trip {padding-top:1.5rem;padding-left:1rem;padding-right:1rem;display:flex;flex-direction:row;justify-content:space-between;}
+.dancheng{width: 3rem;}
+.img-icon{width: 1.2rem;height: 1.2rem;}
+.dancheng,.img-icon{vertical-align: middle;}
+.trip div {font-size:1rem;color:#707070;line-height:3.2rem;}
+.trip .go {display:inline-block;width:1.2rem;height:1.2rem;background:#00afec;font-size:0.9rem;line-height:1.2rem;color:#FFFFFF;border-radius:0.1rem;text-align:center;}
+.trip div .ytpes {color:#333333;margin: 0 0.8rem;}
+.trip .data {margin-right:0.8rem;}
+
+
+/*------------订单填写样式---------*/
+.message,.cost,.check,.one-way {margin-bottom: 0.5rem;background:#FFFFFF;border-radius:0.5rem;font-size:1.5rem;color:#333333;}
+.cost {padding:1rem 1.05rem;display: flex;flex-direction: column;line-height:2.4rem;}
+.message .bor {border-bottom:0.05rem dotted #CCCCCC;}
+.message .list {padding-left:1.1rem;padding-right:1.1rem;line-height:4rem;}
+.check .one{display: flex;flex-direction: row;justify-content: space-between;padding-left:1.1rem;padding-right:1.1rem;line-height:4rem;}
+.list .name{display: inline-block; width: 7rem;}
+.list .cx{display: inline-block; width: 10rem;}
+.passenerItem .list{border-top: 0.05rem dotted #CCCCCC;}
+.passenerItem .list .one{display: flex;flex-direction: row;justify-content: space-between;}
+.greay {color:#858585;font-size:1.5rem;display: inline-block;width: 8rem;}
+.cost .money {color: #FF7E00;}
+.crewInfor{margin-left: 1.4rem;display: none;}
+.crewInfor .infor{display: inline-block;width: 7rem;}
+.crewInfor li{line-height: 1.7rem;font-size: 1rem;color: #999999;margin-bottom: 0.6rem;}
+.banks{display: flex;justify-content: space-between;flex-direction: row;}
+.inforF .banks .stateT{color: #ff3c00;}
+.inforF .original span{font-size: 1.2rem;color: #333333;}
+.one-way .way-title {display:flex;flex-direction:row;justify-content:space-between;border-bottom:0.01rem dotted #CCCCCC;line-height:4rem;padding:0 1rem;font-size:1.5rem;}
+.way-title .way-type {color:#00afec;}
+.audit {color:#ff3c00;}
+.way-content,.wayShow {padding-left:1.1rem;padding-top:0.85rem;}
+.tripWay{font-size: 1.5rem; color: #00afec;}
+.wayShow{padding-bottom:0.85rem;border-top: 0.05rem dotted #CCCCCC;display: none;}
+.flight {display:flex;flex-direction:row;}
+.flight .line {width:0.5rem;height:8rem;margin-top:1.5rem;margin-left:1rem;margin-right:1.1rem;padding:0.75rem 0;}
+.flight .left {display:flex;flex-direction:column;justify-content:space-between;text-align:center;}
+.flight .right {display:flex;flex-direction:column;justify-content:space-between;margin-top:1rem;}
+.flight .right img {width:1.1rem;height:1rem;margin-top:0.1rem;margin-right:0.5rem;}
+.flight .right .r-middle {font-size:1rem;}
+.transit {margin:0 auto;text-align:center;display:flex;flex-direction:row;margin-left:5.3rem;margin-top:1.45rem;}
+.transit div {display:flex;flex-direction:row;justify-content:space-between;margin-left:1rem;}
+.transit div>h5 {margin-right:1.25rem;}
+.transit img {width:1.55rem;height:1.55rem;}
+.start h5 {font-size:1.8rem;line-height:1.8rem;}
+.right .r-top,.right .r-bottom {font-size:1.8rem;display:flex;flex-direction:row;justify-content:flex-start;color:#333333;}
+.right .r-top>h5,.right .r-bottom>h5 {margin-right:2.1rem;}
+.r-middle {font-size:2rem;}
+.flight .tank {color:#a7a7a7;font-size:1rem;text-align:left;}
+.flight .big {margin:0 1rem;}
+.folding {height:15rem;position:relative;display: none;}
+.closed {display:inline-block;text-align:center;font-size:1.4rem;line-height:3.3rem;color:#00afec;}
+.clickIcon{margin:auto 0;}
+.img {width:1.8rem;height:1.05rem;vertical-align:middle;}
+.footer-transit {margin: 3rem 0;width:auto;font-size:1.5rem;line-height:4.9rem;color:#FFFFFF;}
+.footer-transit div {width:100%;text-align:center;background:#FF7E00;border-radius:0.5rem;cursor:pointer; margin-bottom: 0.5rem;}
+.tips-order {width:25rem;height:13rem;position:fixed;left:50%;top:50%;background:#f7f7f7;display:block;z-index:100;margin-left: -12.5rem;margin-top:-6.5rem;}
+.tips-order .cancal-title {padding-left:0.3rem;padding-right:1rem;line-height:2rem;display:flex;flex-direction:row;justify-content:flex-start;background:#01AFEC;}
+.cancal-title .icon-tips img {width:1.5rem;height:1.5rem;margin-top:0.7rem;margin-right:0.7rem;}
+.tips-content {margin-top:0.5rem; display: flex;flex-direction: row;justify-content: space-around;}
+.tips-content .tips-top {font-size:0.9rem;color:#FFFFFF; font-weight: bold;}
+.tips-content .tips-bot {font-size:0.9rem;color:#FFFFFF;}
+.reaon-can {font-size:1rem;padding-top:0.5rem;color:rgb(0 0 0); text-indent: 0.3rem;}
+.reason-true {height:2.5rem;line-height:2.5rem;color:#00A0E9;text-align:center;font-size:1.2rem;padding: 0; border-top: 0.1rem solid #CCCCCC;margin-top: 1rem;    position: absolute;left: 0;bottom: 0;width: 100%;}
+.reason{width: 99%; height:7rem; padding: 0.1rem;}
+textarea{width:100%;height:100%;resize: none; margin: 0.2rem 0;}
+ .reason-true .true-tips{width:47%;display: inline-block; color: #01AFEC;}
+ 
+/*----------拒绝订单和取消订单的样式---------*/
+.contentd {background: #FFFFFF;border-radius: 0.5rem;font-size: 1.2rem;padding: 0 1.1rem 1rem 1rem;}
+.contentd p {width: 100%;text-align: center;font-size: 1rem;line-height: 3rem;color: #666666;}
+.btnA {display: flex;flex-direction: row;justify-content: space-between;margin-top: 1rem;}
+.btnA a {display: inline-block;width: 10rem;line-height: 3rem;border: 0.1rem solid #CCCCCC;border-radius: 0.5rem;text-align: center;font-size: 1.2rem;}
+.tips .change{font-size: 1.5rem;}
+.sureBtn{color:#01AFEC;}
+.canBtn{color: #333333;}
+
+/*---------------订单填写-------------------------*/
+.flightD{background: #FFFFFF;border-radius: 0.5rem;}
+.flightD .detailM{display: flex;flex-direction: row;justify-content: space-between;padding: 0.25rem 1rem;border-bottom: 0.05rem dotted #CCCCCC;font-size: 1.2rem;color: #333333;line-height: 2rem;}
+.detailM .detailB{font-size: 1rem; color: #666666;}
+.detailM .gap{margin-right: 1.5rem;}
+.topType img{width: 1.1rem; height: 1rem;vertical-align: middle;margin-right: 0.5rem;}
+.imgIcon{margin: auto 0;}
+.travel{padding: 0.5rem 1rem;line-height: 2.3rem;}
+.priv{font-size: 1.5rem; color: #333333;margin-right: 1rem;}
+.travelB .money{margin-left: 1rem;margin-right: 1.5rem;}
+.btna{color: #00AFEC;font-size: 1.2rem;}
+.travel .travelB{display: flex;flex-direction: row;justify-content: space-between;font-size: 1rem;}
+.orderFill .fillList{line-height: 4rem;margin-top: 1rem;background: #FFFFFF;border-radius: 0.5rem;font-size: 1.5rem;color: #666666;}
+.fillList .airp{padding: 0 1rem; display: flex;flex-direction: row;justify-content: space-between;}
+.airp img,.deleteEle{width: 2.3rem;height: 2.3rem;vertical-align: middle;}
+.detail{color: #333333;line-height: 2.5rem;font-size: 1.5rem;padding: 1rem;border-top: 0.05rem dotted #CCCCCC;}
+.detail .name{display: inline-block;width: 10rem;color: #666666;}
+.detail .detailEdtior{display: flex; flex-direction: row;justify-content: space-between;}
+.chooseR{width: 1rem;height: 1.8rem;vertical-align: middle;}
+.detail input{height: 2.5rem;font-size: 1.5rem;border: none;}
+.insurance{color: #00AFEC;margin-left: 1rem;}
+.fillList .explain{display: flex;flex-direction: row;justify-content: space-between;padding: 0 1rem;}
+.fillList .explain:nth-of-type(1){border-bottom: 0.05rem dotted #CCCCCC;}
+.detailEdtior .people{color: #ff3c00;}
+.footer{line-height: 4.4rem;background: #FFFFFF;display: flex;flex-direction: row;font-size: 1.8rem;padding: 0 0 0 1rem;margin-top: 1rem;}
+.footer .price{flex-grow: 2;color: #ff3c00;}
+.price .total{color: #333333;}
+.footer .true{flex-grow: 1;background: #ff3c00;color: #FFFFFF;letter-spacing: 2.5rem;text-align: center;}
+
+/*-------------保险开关的按钮---------*/
+.circle{width: 5rem;height: 2.5rem;border-radius: 2rem;background: #00afec;position: relative;margin-right: 1rem;}
+.circle .circleBtn{width: 2.3rem;height: 2.3rem;margin-top: 0;margin-right: 0;position: absolute;right: 0.1rem;top: 0.1rem;}
+.circle .close{position: absolute;left: 0.1rem;top: 0.1rem;}
+
+/*-------添加乘机人样式--------*/
+.Tab{ width: 100%;height: 100%;background: #f0eff5;z-index: 999;}
+.tabTitle{display: flex;flex-direction: row;justify-content: center;}
+.tabTitle .flyer{width: 8.95rem;line-height: 2.4rem;font-size: 1.2rem;text-align: center;cursor: pointer;color: #00AFEC;}
+.tabTitle :nth-child(1){border: 0.05rem solid #00AFEC; border-radius: 0.5rem 0 0 0.5rem;}
+.tabTitle :nth-child(2){border: 0.05rem solid #00AFEC;border-left:none; border-radius: 0 0.5rem 0.5rem 0;}
+.tabContent li{background: #FFFFFF;border-radius: 0.5rem;padding: 1rem;color: #666666;line-height: 2.4rem;margin: 1rem 0 0;width: auto;display:flex;flex-direction:row;justify-content:space-between;}
+.tabContent .name{display: inline-block;width: 7rem;}
+.tabContent li p:nth-child(1) span{color: #333333;}
+.editor{display: flex;flex-direction: row;justify-content: space-between;}
+.tabContent ul{display: none;}
+.tabTitle .highlight{background: #00AFEC; color: #FFFFFF;}
+.tabContent .show{display: block;}
+.edit img{width: 1.9rem;height: 1.9rem;vertical-align: middle;}
+
+/*------------支付方式的页面样式-------*/
+.statusOrder{background: #FFFFFF;border-radius: 0.5rem;margin-bottom: 1rem;}
+.orderS{padding: 3.5rem 0;}
+.orderS div:nth-of-type(1){width: 5rem;height: 5rem;margin: 1.5rem auto;}
+.orderS div img{width: 100%;height: 100%;vertical-align: middle;}
+.statusOrder .sTitle{width:100%;font-size: 1.5rem;text-align: center;line-height: 2.4rem;color: #333333;}
+.orderD{text-align: center;border-top: 0.05rem dotted #CCCCCC; font-size: 1.2rem; color: #333333;padding: 1.5rem 0 1.1rem 0;}
+.orderD div:nth-of-type(2){margin: 1rem 0;}
+.payCount{color: #ff3c00;}
+.payMoney{color: #ff7e00;}
+.orderD p:nth-of-type(1){font-size: 1.5rem;}
+.orderD p:nth-of-type(2){font-size: 1rem;color: #666666;}
+.orderD a{color: #00AFEC;margin-right: 1rem;}
+.payType{background: #FFFFFF; border-radius: 0.5rem;font-size: 1.5rem;color: #333333;}
+.payType .typeTitle{line-height: 3.4rem; padding: 0 1rem;}
+.typeList li{line-height: 5rem;border-top: 0.05rem dotted #CCCCCC;display: flex;flex-direction: row;justify-content: space-between;padding: 0 1rem;}
+.treasure{background: url(../img/zhifubao.png) no-repeat;background-size: 2.4rem 2.4rem;background-position-y: center;background-position-x:1rem;}
+.weixin{background: url(../img/weixin.png) no-repeat;background-size: 2.4rem 2.2rem;background-position-y: center;background-position-x:1rem;}
+.typeList li span:nth-of-type(1){margin-left: 3.4rem;}
+.typeList li span:nth-of-type(2){margin: auto 0;}
+.typeList li img{width: 2.2rem; height: 2.2rem;vertical-align: middle;}
+.toPay{line-height: 5rem;text-align: center;color: #FFFFFF;font-size: 1.8rem;background: #00afec;margin-top: 7rem;cursor: pointer;}
+
+
+
+/*-------------------支付成功或失败的页面样式--------------*/
+
+.indexContent {background: #FFFFFF;border-radius: 0.5rem;}
+.indexContent .state {padding: 5rem 0 4.4rem 0;border-bottom: 0.05rem dotted #CCCCCC;}
+.state .stateImg {width: 5.4rem;height: 5.4rem;margin: 0 auto;}
+.stateImg img {width: 100%;height: 100%;}
+.state p{font-size: 1.5rem; text-align: center;line-height: 5.5rem;color: #00ce00;}
+.failure p{color: #f22f2f;}
+.stateMessage{padding: 0.5rem 0 1.65rem 0;}
+.stateMessage .orderNumber{font-size: 1.2rem; color: #333333;text-align: center;line-height: 3.2rem;}
+.stateMessage .orderpaid{font-size: 1.5rem;text-align: center;}
+.stateMessage .information{text-indent: 1rem; font-size: 1.2rem;line-height: 2.1rem;color: #666666;}
+.orderpaid .moneyOrder{color: #ff7e00;}
+.clickTurn{display: flex; flex-direction: row;justify-content: space-around;margin-top: 2rem;}
+.returnHome{display: flex; flex-direction: row;justify-content: center;}
+.clickTurn .viewOrder{width: 6.9rem; height: 2.9rem; border: 0.05rem solid #333333; border-radius: 0.5rem;text-align: center;line-height: 2.9rem;font-size: 1.2rem;cursor: pointer;}
+.footerSure{width: 100%;line-height: 5rem;text-align: center;background: #00AFEC; color: #FFFFFF;margin-top: 10rem;font-size: 1.8rem;}
+.fWrap .payAgain{background: #f22f2f;}
+
+
+/*----------------我的常旅客的样式--------------*/
+.content-my {background:#FFFFFF;border-radius:0.5rem;padding-left:1rem;padding-top:0.5rem;padding-bottom:1rem;}
+.content-my .name {font-size:1.8rem;color:#333333;line-height:3.5rem;}
+.content-my .new p {color:#666666;font-size:1.5rem;line-height:2.4rem;}
+.new .phone {margin-left:3rem;}
+.new .email {margin-left:4.5rem;}
+.order {margin:1rem 0;border-radius:0.5rem;background:#FFFFFF;font-size:1.5rem;color:#333333;}
+.order .order-list {display:flex;flex-direction:row;justify-content:space-between;line-height:4.4rem;padding-right:1rem;text-indent:1rem;}
+.order .order-list img {vertical-align:middle;width:1.05rem;height:1.8rem;}
+
+/*------------------新增常旅客的样式----------------*/
+.content-flyer {background:#FFFFFF;border-radius:0.5rem;font-size:1.5rem;}
+.content-flyer li {line-height:4rem;padding:0 1rem;}
+.content-flyer .bor {border-bottom:0.1rem dotted #CCCCCC;}
+.content-flyer .choose {display:flex;flex-direction:row;justify-content:space-between;}
+.wrapL img {width:1.05rem;height:1.8rem;vertical-align:middle;}
+.wrapL .name {color:#333333;display: inline-block;width: 9rem;}
+.wrapL input{font-size: 1.5rem;border: 0;outline: none;background: #FFFFFF;}
+.item {margin:1rem 0;background:#FFFFFF;border-radius:0.5rem;}
+.item .item-title {line-height:4rem;font-size:1.5rem;color:#666666;padding: 0 1rem;}
+.item .item-list {border-top:0.1rem dotted #CCCCCC;padding:1.5rem 1rem;line-height:2.4rem;font-size:1.5rem;color:#333333;}
+.item-list .type{display:flex;flex-direction:row;justify-content:space-between;}
+.footerF{line-height: 4rem;font-size: 1.5rem;text-align: center;color: #FFFFFF;background: #ff7e00;letter-spacing: 2rem;border-radius: 0.5rem;}
+
+/*---------------适配屏幕大小------------*/
+@media only screen and (min-width: 481px) {html {font-size:94%!important}}
+
+@media only screen and (min-width: 561px) {html {font-size:109%!important}}
+
+@media only screen and (min-width: 641px) {html {font-size:125%!important}}

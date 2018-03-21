@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no"/>
+		<title>我的</title>
+		<link rel="stylesheet" type="text/css" href="../css/allOrder.css"/>
+	</head>
+	<body>
+		<div class="headerS"></div>
+		<section>
+			<div class="content-my">
+				<div>
+					<p class="name">田晓</p>
+				</div>
+				<div class="new">
+					<p>
+						<span >手机号</span>
+						<span class="phone">18512851217</span>
+					</p>
+					<p>
+						<span>身份证</span>
+						<span class="phone">133199876154567</span>
+					</p>
+					<p>
+						<span>邮箱</span>
+						<span class="email">1787654543@qq.com</span>
+					</p>
+				</div>
+			</div>
+			<ul class="order">
+				<li class="order-list myOrder">
+					<p>我的订单</p>
+					<div>
+						<img src="../img/you.png"/>
+					</div>
+				</li>
+			</ul>
+			<ul class="order">
+				<li class="order-list flyer" style="border-bottom: 0.1rem dotted #CCCCCC;">
+					<p>常旅客</p>
+					<div>
+						<img src="../img/you.png"/>
+					</div>
+				</li>
+				<li class="order-list">
+					<p>解除微信绑定</p>
+					<div>
+						<img src="../img/you.png"/>
+					</div>
+				</li>
+			</ul>
+		</section>
+		<script type="text/javascript" src="../libs/jquery.min.js"></script>
+		<script type="text/javascript">
+		$(".headerS").load("header.html", function(data) {
+			$('.zhixiang').html('我的');
+			$('header div img').on('click', function() {
+				window.history.back(-1);
+			});
+		});
+		/*我的订单的页面跳转*/
+			$('.myOrder').on('click',function(){
+				window.location.href = "allOrder.html";
+			});
+			/*常旅客的页面跳转*/
+			$('.flyer').on('click',function(){
+				window.location.href = "changlvke.html";
+			});
+			$('header div img').on('click',function(){
+				window.history.back(-1);
+			});
+		</script>
+	</body>
+</html>

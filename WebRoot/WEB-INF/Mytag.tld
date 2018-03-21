@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<taglib xmlns="http://java.sun.com/xml/ns/j2ee"      
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"      
+    xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd"
+	version="2.0">
+	<tlib-version>1.0</tlib-version>
+	<short-name>mt</short-name>
+	<uri>/mytag</uri>
+
+
+	<tag>
+		<name>pay</name>
+		<tag-class>com.viptrip.taglib.PayTag</tag-class>
+		<body-content>JSP</body-content>
+		<attribute>
+			<description>页面类型 1-PC 2-H5 3-WX</description>
+			<name>pageType</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<description>后台action地址</description>
+			<name>url</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<description>金额</description>
+			<name>amount</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+	<tag>
+		<name>countDown</name>
+		<tag-class>com.viptrip.taglib.PayCountdownTag</tag-class>
+		<body-content>JSP</body-content>
+		<attribute>
+			<description>初始倒计时数</description>
+			<name>countdown</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<description>是否初始化</description>
+			<name>init</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<!-- 格式化时间为字符串 -->
+	<function>
+	    <name>fmtByStyle</name>
+	    <function-class>com.viptrip.taglib.DateFunction</function-class>
+	    <function-signature>java.lang.String format(java.util.Date,java.lang.String)</function-signature>
+	</function>
+
+
+	<!-- 格式化时间为字符串 -->
+	<function>
+	    <name>fmtByStringStyle</name>
+	    <function-class>com.viptrip.taglib.DateFunction</function-class>
+	    <function-signature>java.lang.String format(java.lang.String,java.lang.String)</function-signature>
+	</function>
+	<!-- 格式化时间为字符串 -->
+	<function>
+	    <name>fmtByMDStyle</name>
+	    <function-class>com.viptrip.taglib.DateFunction</function-class>
+	    <function-signature>java.lang.String sformat(java.lang.String,java.lang.String)</function-signature>
+	</function>
+	<!-- 格式化时间为字符串 -->
+	<function>
+	    <name>fmtBySStyle</name>
+	    <function-class>com.viptrip.taglib.DateFunction</function-class>
+	    <function-signature>java.lang.String shformat(java.lang.String,java.lang.String)</function-signature>
+	</function>
+	<!-- 计算两个日期是否跨天 跨几天 -->
+	<function>
+	    <name>fmtByDay</name>
+	    <function-class>com.viptrip.taglib.DateFunction</function-class>
+	    <function-signature>java.lang.String getDistanceDay(java.lang.String,java.lang.String,java.lang.String)</function-signature>
+	</function>
+	<!-- 格式化时间为字符串 -->
+	<function>
+	    <name>fmtByDeafault</name>
+	    <function-class>com.viptrip.taglib.DateFunction</function-class>
+	    <function-signature>java.lang.String format(java.util.Date)</function-signature>
+	</function>
+	
+	<!-- 格式化折扣为字符串 -->
+	<function>
+	    <name>fmtDiscount</name>
+	    <function-class>com.viptrip.taglib.StringFunction</function-class>
+	    <function-signature>java.lang.String formatDiscount(java.lang.Double)</function-signature>
+	</function>
+	<!-- 格式化价格，后面不加小数点 -->
+	<function>
+	    <name>formatPrice</name>
+	    <function-class>com.viptrip.taglib.StringFunction</function-class>
+	    <function-signature>java.lang.String formatPrice(java.lang.Double)</function-signature>
+	</function>
+	
+	<!-- 获取时间之间的差值 -->
+	<function>
+	    <name>getTimeDis</name>
+	    <function-class>com.viptrip.taglib.DateFunction</function-class>
+	    <function-signature>java.lang.String getDistanceTime(java.util.Date,java.util.Date)</function-signature>
+	</function>
+	
+	<!-- 获取时间字符串之间的差值 -->
+	<function>
+	    <name>getTimeStrDis</name>
+	    <function-class>com.viptrip.taglib.DateFunction</function-class>
+	    <function-signature>java.lang.String getDistanceTime(java.lang.String,java.lang.String,java.lang.String)</function-signature>
+	</function>
+	
+
+	
+</taglib>
